@@ -1,13 +1,6 @@
 //install service worker
-self.addEventListener('install', evt => {
-    console.log('service worker has been installed');
-});
-
-//activate event
-self.addEventListener('activate', evt =>{
-    console.log('service worker has been activated');
-});
 const staticCacheName='site-static-v';
+const dynamicCacheName = 'site-dynamic-v4';
 const assets=[
     '/',
     '/index.html',
@@ -40,7 +33,7 @@ self.addEventListener('install', evt => {
   });
   
 
-const dynamicCacheName = 'site-dynamic-v4';
+
 self.addEventListener('fetch', evt => {
 
     if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
