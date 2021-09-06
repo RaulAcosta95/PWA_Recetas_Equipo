@@ -1,12 +1,17 @@
 //install service worker
-const staticCacheName='site-static-v';
-const dynamicCacheName = 'site-dynamic-v4';
+const staticCacheName='site-static-v1';
+const dynamicCacheName = 'site-dynamic-v1';
 const assets=[
     '/',
     '/index.html',
-    '/js/app.js',
+    '/manifest.json',
+    '/sw.js',
     '/css/styles.css',
-    'img/dish.png',
+    '/images/404-Error-bro.svg',
+    '/images/dish.png',
+    '/js/app.js',
+    '/pages/fallback.html'
+
 ];
 
 self.addEventListener('install', evt => {
@@ -24,7 +29,7 @@ self.addEventListener('install', evt => {
    evt.waitUntil(
      caches.keys().then(keys=>{
        return Promise.all(keys
-        .filter(key=> key !== staticCacheName)
+        .filter(key=> key !== staticCacheName && key !==dynamicCacheName)
         .map(key => caches.delete(key))
         )
      })
