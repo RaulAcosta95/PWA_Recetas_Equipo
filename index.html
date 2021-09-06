@@ -4,22 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./images/icon-128x128.ico">
-    <title>FoodNinja</title>
-    <meta name="theme-color" content="#aa7700">
-    <link rel="manifest" href="./manifest.json">
-    <!-- ios support -->
-    <link rel="apple-touch-icon" href="./images/icons/icon-96x96.png">
-    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
-    <style>
-        *{
-            margin:0;
-            padding:0;
-        }
-    </style>
-
+    <title>Document</title>
+   
 </head>
 <body>
-    <h1>Index.html</h1>
+
+
+  
+<script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
+  <script >
+   
+    const firebaseConfig = {
+      apiKey: "AIzaSyCAI58nxAXooZKJ95WM7cMtqsLzGReHaj0",
+      authDomain: "ninja-food-pwa-ef6bf.firebaseapp.com",
+      projectId: "ninja-food-pwa-ef6bf",
+      storageBucket: "ninja-food-pwa-ef6bf.appspot.com",
+      messagingSenderId: "770304869140",
+      appId: "1:770304869140:web:d0b70400bb602a0c083801"
+    };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+  
+  <script src="./js/app.js"></script>
+  <script src="./js/db.js"></script> 
+  
 </body>
 </html>
