@@ -4,18 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap" rel="stylesheet">
     <script src="./js/contact.js" type="module"></script>
   
+<title>FoodNinja</title>
+    <link rel="apple-touch-icon" href="./images/icons/icon-96x96.png">
 
-    
-    
+    <style>
+      *{
+          margin:0;
+          padding:0;
+      }
+  </style>
+    <!-- COMPONENTES -->
+    <script type="module" src="/js/components/indexComponents.js"></script>
 </head>
 <body>
+  <header>
+    <menu-desplegable title1="FOOD" title2="NINJA"></menu-desplegable>
+  </header>
 
-   <component-contact></component-contact> 
+  <component-contact></component-contact> 
+<!-- ----------------------------------------------------------------------- -->
+<!-- DATABASE -->
+<script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
+  
+  <!-- DATABASE -->
+  <script >
+    const firebaseConfig = {
+      apiKey: "AIzaSyCAI58nxAXooZKJ95WM7cMtqsLzGReHaj0",
+      authDomain: "ninja-food-pwa-ef6bf.firebaseapp.com",
+      projectId: "ninja-food-pwa-ef6bf",
+      storageBucket: "ninja-food-pwa-ef6bf.appspot.com",
+      messagingSenderId: "770304869140",
+      appId: "1:770304869140:web:d0b70400bb602a0c083801"
+    };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+  
+  <script src="./js/app.js"></script>
+  <!-- DATABASE -->
+  <script src="./js/db.js"></script> 
+  
 </body>
 </html>
