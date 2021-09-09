@@ -1,6 +1,6 @@
 //install service worker
-const staticCacheName='site-static-v2';
-const dynamicCacheName = 'site-dynamic-v2';
+const staticCacheName='site-static-v1';
+const dynamicCacheName = 'site-dynamic-v1';
 const assets=[
     '/',
     '/index.html',
@@ -48,7 +48,7 @@ self.addEventListener('fetch', evt => {
             return caches.open(dynamicCacheName).then(cache => {
               cache.put(evt.request.url, fetchRes.clone());
               // check cached items size
-              limitCacheSize(dynamicCacheName, 15);
+              limitCacheSize(dynamicCacheName, 30);
               return fetchRes;
             })
           });

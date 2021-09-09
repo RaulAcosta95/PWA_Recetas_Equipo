@@ -1,6 +1,7 @@
 import { LitElement, html } from "lit-element";
-class menuDesplegableComponent extends LitElement{
+export class menuDesplegableComponent extends LitElement{
     static get properties(){
+        // hoiiohio
         return{
             title1: {type: String},
             title2: {type: String},
@@ -59,7 +60,6 @@ class menuDesplegableComponent extends LitElement{
 
             <div class="menuDesplegableComponent">
                 <h2><span id="title1">${this.title1}</span><span id="title2">${this.title2}</span></h2>
-
                 <button @click=${this.aparecerMenu}><img src='./images/menu.png'></button>
             </div>
             <!-- <menu-component></menu-component> -->

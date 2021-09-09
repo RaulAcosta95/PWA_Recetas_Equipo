@@ -1,1 +1,2 @@
 import './menuDesplegableComponent';
+import './listaRecetasComponent';
