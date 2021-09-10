@@ -19,7 +19,9 @@ class Contact extends LitElement {
     }
     static get styles() {
         return css`
+        
     `;
+    
     }
     constructor() {
         super();
