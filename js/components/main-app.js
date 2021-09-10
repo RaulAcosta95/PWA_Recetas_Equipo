@@ -1,5 +1,5 @@
 import { LitElement, html } from "lit-element";
-
+import '../contact'
 class MainApp extends LitElement{
 
     static get properties(){
@@ -15,10 +15,9 @@ class MainApp extends LitElement{
     render(){
         return html`
         <main>
-        ${this.ban==='about' ?  html`<p>Soy About</p>`
+        ${this.ban==='contact' ?  html`<component-contact></component-contact>`
         :
-        
-         html`<p>Soy Contact</p>`
+         html`<component-contact></component-contact>`
         }
         
     </main>

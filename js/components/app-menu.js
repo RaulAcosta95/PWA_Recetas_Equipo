@@ -36,6 +36,7 @@ export class MenuApp extends LitElement{
            main{
                 width: 20%;
                 height: 200px; 
+                
            }
            
     `;
@@ -97,11 +98,11 @@ _clickAbout(){
     if(main.hasChildNodes()){
         main.innerHTML = null;
         main.innerHTML = '<main-app ban="about"></main-app>'
-        rigth.style.setProperty("display","inline");
+        rigth.style.setProperty("display","block");
 
     }else{
         main.innerHTML = '<main-app ban="about"></main-app>'
-        rigth.style.setProperty("display","inline");
+        rigth.style.setProperty("display","block");
     }
 }
 properti() {

@@ -4,6 +4,7 @@ import './indexComponents'
 class menuDesplegableComponent extends LitElement{
 
     static get properties(){
+        // hoiiohio
         return{
             title1: {type: String},
             title2: {type: String},
@@ -63,24 +64,33 @@ class menuDesplegableComponent extends LitElement{
        
 
             <div class="menuDesplegableComponent">
-                <h2><span id="title1">${this.title1}</span><span id="title2">${this.title2}</span></h2>
-
+                <h2><span id="title1" @click=${this.apreceListado}>${this.title1}</span><span id="title2" @click=${this.apreceListado}>${this.title2}</span></h2>
                 <button @click=${this.aparecerMenu}><img src='./images/menu.png'></button>
             </div>
             
         `
     }
+    apreceListado(){
+        let main = document.getElementById('central');
+        if(main.hasChildNodes()){
+            main.innerHTML = null;   
+            main.innerHTML = '<lista-recetas></lista-recetas>'   
+        }else{
+            main.innerHTML = '<lista-recetas></lista-recetas>'
+        }
+    }
+
     aparecerMenu(){
        let menu = document.getElementById('rigth');
        let main = document.getElementById('central');
        if(menu.hasChildNodes()){
             menu.innerHTML = null;      
             menu.style.setProperty("display","none");
-            main.style.setProperty("width", "100%");
+            menu.style.setProperty("z-index","-1");
        }else{
            menu.style.setProperty("display","inline");
-           main.style.setProperty("width", "70%");
-           menu.innerHTML = '<menu-app></menu-app>'
+           menu.style.setProperty("z-index","1");
+            menu.innerHTML = '<menu-app></menu-app>'
        }
         
     }
