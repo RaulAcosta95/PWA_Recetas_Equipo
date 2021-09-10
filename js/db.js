@@ -1,3 +1,17 @@
+
+//offline data
+
+db.enablePersistence()
+.catch(err=>{
+    if (err.code=='failed-precondition') {
+        //probablemente hay varias pestañas abiertas
+        console.log('persistence failed');
+        
+    }else if (err.code=='unimplemented') {
+        console.log('persistence is not available');
+    }
+});
+
 // add new recipe
 console.log('/js/db.js');
 db.collection('recipes').onSnapshot((snapshot) => {
@@ -21,3 +35,4 @@ db.collection('recipes').onSnapshot((snapshot) => {
 //   form.title.value = '';
 //   form.ingredients.value = '';
 // });
+
