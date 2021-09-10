@@ -1,6 +1,6 @@
 //install service worker
-const staticCacheName='site-static-v2';
-const dynamicCacheName = 'site-dynamic-v2';
+const staticCacheName='site-static-v1';
+const dynamicCacheName = 'site-dynamic-v1';
 const assets=[
     '/',
     '/index.html',
@@ -44,7 +44,7 @@ const assets=[
     '/images/icons/instagram.png',
     '/images/icons/facebook1.png',
     '/images/icons/correo.png',
-    'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2',
+    'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 ',
     'http://localhost:8081/images/icon-128x128.ico'
 
 ];
@@ -76,22 +76,24 @@ self.addEventListener('install', evt => {
 
 self.addEventListener('fetch', evt => {
 
-    if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
-      evt.respondWith(
-        caches.match(evt.request).then(cacheRes => {
-          return cacheRes || fetch(evt.request).then(fetchRes => {
-            return caches.open(dynamicCacheName).then(cache => {
-              cache.put(evt.request.url, fetchRes.clone());
-              // check cached items size
-              limitCacheSize(dynamicCacheName, 60);
-              return fetchRes;
-            })
-          });
-        }).catch(() => {
-          if(evt.request.url.indexOf('.html') > -1){
-            return caches.match('./pages/fallback.html');
-          } 
-        })
-      );
-    }
+// BUG CACHÉ MUESTRA SOLO LO QUE ESTÁ EN DINAMIC CACHÉ
+// ES DECIR, OFFLINE MODE CAUSA CONFLICTO
+    // if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
+    //   evt.respondWith(
+    //     caches.match(evt.request).then(cacheRes => {
+    //       return cacheRes || fetch(evt.request).then(fetchRes => {
+    //         return caches.open(dynamicCacheName).then(cache => {
+    //           cache.put(evt.request.url, fetchRes.clone());
+    //           // check cached items size
+    //           limitCacheSize(dynamicCacheName, 60);
+    //           return fetchRes;
+    //         })
+    //       });
+    //     }).catch(() => {
+    //       if(evt.request.url.indexOf('.html') > -1){
+    //         return caches.match('./pages/fallback.html');
+    //       } 
+    //     })
+    //   );
+    // }
   });
