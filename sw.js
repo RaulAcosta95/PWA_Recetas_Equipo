@@ -1,6 +1,6 @@
 //install service worker
-const staticCacheName='site-static-v1';
-const dynamicCacheName = 'site-dynamic-v1';
+const staticCacheName='site-static-v2';
+const dynamicCacheName = 'site-dynamic-v2';
 const assets=[
     '/',
     '/index.html',
@@ -10,7 +10,42 @@ const assets=[
     '/images/404-Error-bro.svg',
     '/images/dish.png',
     '/js/app.js',
-    '/pages/fallback.html'
+    '/pages/fallback.html',
+    '/js/contact.js',
+    'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap',
+    'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js ',
+    'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js ',
+    '/js/components/indexComponents.js ',
+    '/js/db.js',
+    '/node_modules/lit-element/lit-element.js ',
+    '/js/components/menuDesplegableComponent.js',
+    '/js/components/listaRecetasComponent.js',
+    '/node_modules/lit-html/lib/shady-render.js ',
+    '/node_modules/lit-element/lib/updating-element.js',
+    '/node_modules/lit-element/lib/decorators.js',
+    '/node_modules/lit-html/lit-html.js ',
+    '/node_modules/lit-element/lib/css-tag.js',
+    '/js/components/recetaComponent.js',
+    '/node_modules/lit-html/lib/dom.js ',
+    '/node_modules/lit-html/lib/modify-template.js',
+    '/node_modules/lit-html/lib/render.js ',
+    '/node_modules/lit-html/lib/template-factory.js',
+    '/node_modules/lit-html/lib/template-instance.js',
+    '/node_modules/lit-html/lib/template.js',
+    '/node_modules/lit-html/lib/default-template-processor.js',
+    '/node_modules/lit-html/lib/template-result.js',
+    '/node_modules/lit-html/lib/directive.js ',
+    '/node_modules/lit-html/lib/part.js',
+    '/node_modules/lit-html/lib/parts.js ',
+    '/images/menu.png',
+    '/images/delete.png ',
+    '/css/contact.css ',
+    '/images/icons/icon-144x144.png',
+    '/images/icons/instagram.png',
+    '/images/icons/facebook1.png',
+    '/images/icons/correo.png',
+    'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 ',
+
 
 ];
 
@@ -48,7 +83,7 @@ self.addEventListener('fetch', evt => {
             return caches.open(dynamicCacheName).then(cache => {
               cache.put(evt.request.url, fetchRes.clone());
               // check cached items size
-              limitCacheSize(dynamicCacheName, 30);
+              limitCacheSize(dynamicCacheName, 60);
               return fetchRes;
             })
           });

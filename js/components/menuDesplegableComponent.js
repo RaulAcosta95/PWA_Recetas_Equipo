@@ -1,4 +1,6 @@
 import { LitElement, html } from "lit-element";
+import './listaRecetasComponent';
+import '../contact';
 export class menuDesplegableComponent extends LitElement{
     static get properties(){
         // hoiiohio
@@ -67,12 +69,18 @@ export class menuDesplegableComponent extends LitElement{
     }
     aparecerMenu(){
         console.log('Aparece Menú');
-        // let contenedorMenu = document.querySelector('.menu');
-        // if(contenedorMenu.hasChildNodes()){
-        //     contenedorMenu.innerHTML = null;
-        // } else {
-        //     contenedorMenu.innerHTML = '<menu-component title1="FOOD" title2="NINJA"></menu-component>';
-        // }
+        let contenedorRecetas = document.querySelector('.recetas');
+        let contenedorContact = document.querySelector('.contact');
+        if(contenedorRecetas.hasChildNodes()){
+            contenedorRecetas.innerHTML = null;
+        } else {
+            contenedorRecetas.innerHTML = '<lista-recetas></lista-recetas>';
+        }
+        if(contenedorContact.hasChildNodes()){
+            contenedorContact.innerHTML = null;
+        } else {
+            contenedorContact.innerHTML = '<component-contact></component-contact>';
+        }
     }
 }
 customElements.define('menu-desplegable', menuDesplegableComponent);
