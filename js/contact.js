@@ -3,6 +3,7 @@ class Contact extends LitElement {
     static get properties(){
         return{
             tituloContact:{type:String},
+            iconoContacto:{type:String},
 
             redSocial1:{type:String},
             iconoRedSocial1:{type:String},
@@ -109,6 +110,7 @@ class Contact extends LitElement {
     constructor() {
         super();
         this.tituloContact="";
+        this.iconoContacto="";
 
         this.redSocial1="";
         this. linkRedSocial1="";
@@ -124,10 +126,9 @@ class Contact extends LitElement {
     }
     render() {
         return html`
-        <link rel="stylesheet" href="./css/contact.css">
 
         <div class="Contact ">
-        <img class="Ninja" src="./images/icons/icon-144x144.png" alt="">
+        <img class="Ninja" src="${this.iconoContacto}" alt="">
         <h3>${this.tituloContact}</h3>
     
         <h2 class="titulo">Contactanos y siguenos en nuestras redes sociales...</h2>

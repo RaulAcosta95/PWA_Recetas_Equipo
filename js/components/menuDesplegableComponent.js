@@ -41,10 +41,13 @@ class menuDesplegableComponent extends LitElement{
             }
             .menuDesplegableComponent #title1{
                 color: rgb(${this.textTitleColorRGB1});
+                cursor:pointer;
 
             }
+            
             .menuDesplegableComponent #title2{
                 color: rgb(${this.textTitleColorRGB2});
+                cursor:pointer;
             }
             .menuDesplegableComponent h2{
                 text-align: center;

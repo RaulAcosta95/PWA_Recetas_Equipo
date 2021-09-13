@@ -3,7 +3,7 @@
 
 db.enablePersistence()
 .catch(err=>{
-    if (err.code =='failed-precondition') {
+    if (err.code=='failed-precondition') {
         //probablemente hay varias pestañas abiertas
         console.log('persistence failed');
         
@@ -13,6 +13,7 @@ db.enablePersistence()
 });
 
 // add new recipe
+//Cuando ocurre un cambio en la BD
 console.log('/js/db.js');
 db.collection('recipes').onSnapshot((snapshot) => {
     snapshot.docChanges().forEach(change =>{
@@ -28,6 +29,15 @@ db.collection('recipes').onSnapshot((snapshot) => {
 //     name: form.title.value,
 //     ingredients: form.ingredients.value
 //   };
+
+//   db.collection('recipes').add(recipe)
+//     .catch(err => console.log(err));
+
+//   form.title.value = '';
+//   form.ingredients.value = '';
+// });
+
+
 
 //   db.collection('recipes').add(recipe)
 //     .catch(err => console.log(err));

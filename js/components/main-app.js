@@ -18,15 +18,16 @@ class MainApp extends LitElement{
         <main>
         ${this.ban==='contact' ?  html`<component-contact 
         tituloContact="FoodNinja" 
+        iconoContacto="./images/icons/icon-144x144.png"
         redSocial1="Instagram" 
         linkRedSocial1="https://www.instagram.com/thenetninja/"
-        iconoRedSocial1="./images/icons/instagram.png"
+        iconoRedSocial1="./images/instagram.png"
         redSocial2="Facebook" 
         linkRedSocial2="https://www.facebook.com/thenetninjauk/"
-        iconoRedSocial2="./images/icons/facebook1.png"
+        iconoRedSocial2="./images/facebook1.png"
         redSocial3="Mail"
         linkRedSocial3="mailto:FoodNinja@gmail.com"
-        iconoRedSocial3="./images/icons/correo.png">
+        iconoRedSocial3="./images/correo.png">
         
        </component-contact>`
         :

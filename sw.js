@@ -1,5 +1,4 @@
-//install service worker
-//install service worker
+
 const staticCacheName='site-static-v1';
 const dynamicCacheName = 'site-dynamic-v2';
 const assets=[
@@ -7,6 +6,7 @@ const assets=[
     '/index.html',
     '/manifest.json',
     '/sw.js',
+    '/images/icons/icon-144x144.png',
     '/css/styles.css',
     '/images/404-Error-bro.svg',
     '/images/dish.png',
@@ -17,17 +17,23 @@ const assets=[
     'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap',
     'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js',
     'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
-    '/js/components/indexComponents.js',
+     '/js/components/indexComponents.js',
     '/js/db.js',
     '/node_modules/lit-element/lit-element.js',
     '/js/components/menuDesplegableComponent.js',
     '/js/components/listaRecetasComponent.js',
+    '/js/components/recetaComponent.js',
+    '/images/menu.png',
+    '/images/delete.png',
+    '/images/instagram.png',
+    '/images/facebook1.png',
+    '/images/correo.png',
+    '/images/icon-128x128.ico',
     '/node_modules/lit-html/lib/shady-render.js',
     '/node_modules/lit-element/lib/updating-element.js',
     '/node_modules/lit-element/lib/decorators.js',
     '/node_modules/lit-html/lit-html.js',
     '/node_modules/lit-element/lib/css-tag.js',
-    '/js/components/recetaComponent.js',
     '/node_modules/lit-html/lib/dom.js',
     '/node_modules/lit-html/lib/modify-template.js',
     '/node_modules/lit-html/lib/render.js',
@@ -39,16 +45,7 @@ const assets=[
     '/node_modules/lit-html/lib/directive.js',
     '/node_modules/lit-html/lib/part.js',
     '/node_modules/lit-html/lib/parts.js',
-    '/images/menu.png',
-    '/images/delete.png',
-    '/css/contact.css',
-    '/images/icons/icon-144x144.png',
-    '/images/icons/instagram.png',
-    '/images/icons/facebook1.png',
-    '/images/icons/correo.png',
     'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 ',
-    'http://localhost:8081/images/icon-128x128.ico'
-
 ];
 self.addEventListener('install', evt=>{
  

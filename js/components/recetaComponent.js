@@ -75,7 +75,13 @@ export class RecetaEnListaComponent extends LitElement{
         `
     }
     _eliminarReceta(){
+        console.log('Evento Elimina Receta');
         db.collection('recipes').doc(this.id).delete();
+        this.dispatchEvent( new CustomEvent('EliminaReceta', {
+            detail: {data: this.id},
+            bubbles: true,
+            composed:true
+        }));
     }
 }
 customElements.define('receta-en-lista', RecetaEnListaComponent);
