@@ -3,7 +3,7 @@
 
 db.enablePersistence()
 .catch(err=>{
-    if (err.code=='failed-precondition') {
+    if (err.code =='failed-precondition') {
         //probablemente hay varias pestañas abiertas
         console.log('persistence failed');
         

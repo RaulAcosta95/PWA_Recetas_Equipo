@@ -1,5 +1,6 @@
 //install service worker
-const staticCacheName='site-static-v3';
+//install service worker
+const staticCacheName='site-static-v1';
 const dynamicCacheName = 'site-dynamic-v2';
 const assets=[
     '/',
@@ -12,6 +13,7 @@ const assets=[
     '/js/app.js',
     '/pages/fallback.html',
     '/js/contact.js',
+    '/js/About.js',
     'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap',
     'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js',
     'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
@@ -39,7 +41,7 @@ const assets=[
     '/node_modules/lit-html/lib/parts.js',
     '/images/menu.png',
     '/images/delete.png',
-    //'/css/contact.css',
+    '/css/contact.css',
     '/images/icons/icon-144x144.png',
     '/images/icons/instagram.png',
     '/images/icons/facebook1.png',
@@ -48,8 +50,8 @@ const assets=[
     'http://localhost:8081/images/icon-128x128.ico'
 
 ];
-
-self.addEventListener('install', evt => {
+self.addEventListener('install', evt=>{
+ 
     //console.log('service worker installed');
     evt.waitUntil(
       caches.open(staticCacheName).then(cache=> {
