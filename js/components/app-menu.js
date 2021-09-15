@@ -3,6 +3,9 @@ import './main-app'
 export class MenuApp extends LitElement{
   static get styles() {
     return css`
+    *{
+    font-family: 'Raleway', sans-serif;
+    }   
     aside{
                 width: 20%;
                 height: 200px;
@@ -38,7 +41,18 @@ export class MenuApp extends LitElement{
                 height: 200px; 
                 
            }
-           
+           h5{
+               text-align:center;
+           }
+            #title1{
+                color: rgb('203, 134, 63');
+
+            }
+            #title2{
+                color: rgb(231, 192, 154);
+            }
+
+
     `;
   };
   static get properties(){
@@ -58,12 +72,13 @@ render(){
     return html`
     <section>
         <main id="panel">
-       
+        <h5><span id="title1">FOOD</span><span id="title2">NINJA</span></h5>
         </main>
         <aside>
 
         <nav>
         <ul class="nav">
+            <li><a @click="${this._clickHome}">Home</a></li>
             <li><a @click="${this._clickContact}">Conctact</a></li>
             <li><a @click="${this._clickAbout}">About</a></li>
         </ul>
@@ -74,6 +89,22 @@ render(){
       </aside>
         </section>
     `;
+}
+_clickHome(){
+    let main = document.getElementById('central');
+    let der = document.getElementById('rigth');
+    if(main.hasChildNodes()){
+        main.innerHTML = null;
+        main.innerHTML = '<main-app ban="home"></main-app>';
+        der.style.setProperty("display","inline");
+
+    }else{
+        main.innerHTML = '<main-app ban="home"></main-app>'
+        der.style.setProperty("display","inline");
+    }
+     
+ 
+
 }
 
 _clickContact(){

@@ -1,5 +1,6 @@
 import { LitElement, html } from "lit-element";
 import '../contact'
+import './indexComponents'
 class MainApp extends LitElement{
 
     static get properties(){
@@ -17,10 +18,12 @@ class MainApp extends LitElement{
         <main>
         ${this.ban==='contact' ?  html`<component-contact></component-contact>`
         :
-         html`<component-contact></component-contact>`
+        this.ban === 'home' ?  html`<lista-recetas></lista-recetas>`
+        :
+        html`<component-contact></component-contact>`
         }
         
-    </main>
+        </main>
         `;
     }
 
