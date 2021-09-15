@@ -13,6 +13,7 @@ db.enablePersistence()
 });
 
 // add new recipe
+//Cuando ocurre un cambio en la BD
 console.log('/js/db.js');
 db.collection('recipes').onSnapshot((snapshot) => {
     snapshot.docChanges().forEach(change =>{

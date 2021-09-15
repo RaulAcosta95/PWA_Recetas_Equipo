@@ -4,6 +4,9 @@ export class ListaDeRecetasComponent extends LitElement{
     constructor(){
         super();
         this._db();
+        addEventListener('EliminaReceta', (id)=>{
+            this._despintarReceta(id.detail.data);
+        })
     }
     static get properties(){
         return {
@@ -22,11 +25,6 @@ export class ListaDeRecetasComponent extends LitElement{
                 if(change.type === 'added'){
                     // Añade la receta al DOM
                     this._pintarReceta(change.doc.data(), change.doc.id);
-                } else if (change.type === 'removed'){
-                    // Borra la receta del DOM
-                    this._despintarReceta(change.doc.data(), change.doc.id);
-                } else {
-                    console.log('Acción de BD desconocida');
                 }
             })
         });
@@ -35,15 +33,13 @@ export class ListaDeRecetasComponent extends LitElement{
         let listaRecetas = this.shadowRoot.querySelector('.listaRecetas');
         listaRecetas.innerHTML += 
         `<receta-en-lista title="${data.title}" ingredients="${data.ingredients}" id="${id}"></receta-en-lista>`;
-        console.log(id+' Añadido');
-
+        console.log(id+' Añadido en lista');
     }
     _despintarReceta(id){
         let listaRecetas = this.shadowRoot.querySelector('.listaRecetas');
         let recetaAEliminar = this.shadowRoot.querySelector(`#${id}`)
         listaRecetas.removeChild(recetaAEliminar);
-        console.log(id+' Eliminado');
-
+        console.log(id+' Eliminado en lista');
     }
     
 }
