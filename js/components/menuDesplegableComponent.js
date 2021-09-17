@@ -84,13 +84,15 @@ class menuDesplegableComponent extends LitElement{
        let menu = document.getElementById('rigth');
        let main = document.getElementById('central');
        if(menu.hasChildNodes()){
-            menu.innerHTML = null;      
+            menu.innerHTML = null; 
+           
             menu.style.setProperty("display","none");
             menu.style.setProperty("z-index","-1");
        }else{
+          
            menu.style.setProperty("display","inline");
            menu.style.setProperty("z-index","1");
-            menu.innerHTML = '<menu-app></menu-app>'
+           menu.innerHTML = '<menu-app></menu-app>'
        }
         
     }
