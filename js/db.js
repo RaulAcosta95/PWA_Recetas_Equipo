@@ -37,3 +37,12 @@ db.collection('recipes').onSnapshot((snapshot) => {
 //   form.ingredients.value = '';
 // });
 
+
+
+//   db.collection('recipes').add(recipe)
+//     .catch(err => console.log(err));
+
+//   form.title.value = '';
+//   form.ingredients.value = '';
+// });
+

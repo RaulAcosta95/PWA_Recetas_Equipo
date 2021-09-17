@@ -1,18 +1,23 @@
-//install service worker
-const staticCacheName='site-static-v2';
+
+const staticCacheName='site-static-v1';
 const dynamicCacheName = 'site-dynamic-v2';
 const assets=[
     '/',
     '/index.html',
     '/manifest.json',
     '/sw.js',
+    '/images/icons/icon-144x144.png',
     '/css/styles.css',
     '/images/404-Error-bro.svg',
     '/images/dish.png',
     '/js/app.js',
     '/pages/fallback.html',
     '/js/contact.js',
-    '/js/components/indexComponents.js',
+    '/js/About.js',
+    'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap',
+    'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js',
+    'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
+     '/js/components/indexComponents.js',
     '/js/db.js',
     '/node_modules/lit-element/lit-element.js',
     '/js/components/menuDesplegableComponent.js',
@@ -20,11 +25,9 @@ const assets=[
     '/js/components/recetaComponent.js',
     '/images/menu.png',
     '/images/delete.png',
-    '/css/contact.css',
-    '/images/icons/icon-144x144.png',
-    '/images/icons/instagram.png',
-    '/images/icons/facebook1.png',
-    '/images/icons/correo.png',
+    '/images/instagram.png',
+    '/images/facebook1.png',
+    '/images/correo.png',
     '/images/icon-128x128.ico',
     '/node_modules/lit-html/lib/shady-render.js',
     '/node_modules/lit-element/lib/updating-element.js',
@@ -42,11 +45,10 @@ const assets=[
     '/node_modules/lit-html/lib/directive.js',
     '/node_modules/lit-html/lib/part.js',
     '/node_modules/lit-html/lib/parts.js',
-    'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap',
     'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 ',
 ];
-
-self.addEventListener('install', evt => {
+self.addEventListener('install', evt=>{
+ 
     //console.log('service worker installed');
     evt.waitUntil(
       caches.open(staticCacheName).then(cache=> {
