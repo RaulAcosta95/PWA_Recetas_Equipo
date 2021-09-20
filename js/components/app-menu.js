@@ -5,6 +5,7 @@ export class MenuApp extends LitElement{
     return css`
     *{
     font-family: 'Raleway', sans-serif;
+    font-size:1rem;
     }   
     aside{
                 width: 20%;
@@ -12,7 +13,7 @@ export class MenuApp extends LitElement{
                 left: 100px;
             }
             .nav {
-                margin-top: 50px;
+                margin-top: 80px;
                 list-style-type: none;
                 padding-left: 3px;
             }
@@ -26,6 +27,7 @@ export class MenuApp extends LitElement{
             .nav a:hover {
                 color: blue;
                 cursor:pointer;
+                
             }
             .nav a:active {
                 color: red;
