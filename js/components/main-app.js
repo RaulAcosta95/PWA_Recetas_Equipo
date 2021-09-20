@@ -31,10 +31,12 @@ class MainApp extends LitElement{
         
        </component-contact>`
         :
+        this.ban === 'home' ?  html`<lista-recetas></lista-recetas>`
+        :
          html`<component-about titulo="A cerca de nosotros"></component-about>`
         }
         
-    </main>
+        </main>
         `;
     }
 
