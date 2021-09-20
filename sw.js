@@ -1,4 +1,4 @@
-
+//install service worker
 const staticCacheName='site-static-v2';
 const dynamicCacheName = 'site-dynamic-v2';
 const assets=[
@@ -47,8 +47,20 @@ const assets=[
     '/node_modules/lit-html/lib/parts.js',
     'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 ',
 ];
-self.addEventListener('install', evt=>{
- 
+
+// cache size limit function
+const limitCacheSize = (name, size) => {
+  caches.open(name).then(cache => {
+    cache.keys().then(keys => {
+      if(keys.length > size){
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
+
+
+self.addEventListener('install', evt => {
     //console.log('service worker installed');
     evt.waitUntil(
       caches.open(staticCacheName).then(cache=> {
@@ -74,25 +86,24 @@ self.addEventListener('install', evt=>{
 
 
 self.addEventListener('fetch', evt => {
-
 // BUG CACHÉ MUESTRA SOLO LO QUE ESTÁ EN DINAMIC CACHÉ
 // ES DECIR, OFFLINE MODE CAUSA CONFLICTO
     if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
       evt.respondWith(
-         caches.match(evt.request).then(cacheRes => {
-           return cacheRes || fetch(evt.request).then(fetchRes => {
-             return caches.open(dynamicCacheName).then(cache => {
-               cache.put(evt.request.url, fetchRes.clone());
-               // check cached items size
-               limitCacheSize(dynamicCacheName,60);
-               return fetchRes;
-             })
-           });
-         }).catch(() => {
-           if(evt.request.url.indexOf('.html') > -1){
-             return caches.match('./pages/fallback.html');
-           } 
-         })
-       );
-     }
+        caches.match(evt.request).then(cacheRes => {
+          return cacheRes || fetch(evt.request).then(fetchRes => {
+            return caches.open(dynamicCacheName).then(cache => {
+              cache.put(evt.request.url, fetchRes.clone());
+              // check cached items size
+              limitCacheSize(dynamicCacheName, 60);
+              return fetchRes;
+            })
+          });
+        }).catch(() => {
+          if(evt.request.url.indexOf('.html') > -1){
+            return caches.match('./pages/fallback.html');
+          } 
+        })
+      );
+    }
   });
