@@ -32,15 +32,24 @@ export class ListaDeRecetasComponent extends LitElement{
     }
     _pintarReceta(data, id){
         let listaRecetas = this.shadowRoot.querySelector('.listaRecetas');
+        let ingredientes = data.ingredients;
+        ingredientes = this._fragmentarIngredientes(ingredientes);
         listaRecetas.innerHTML += 
-        `<receta-en-lista title="${data.title}" ingredients="${data.ingredients}" id="${id}"></receta-en-lista>`;
-        console.log(id+' Añadido en lista');
+        `<receta-en-lista title="${data.title}" ingredients="${ingredientes}" id="${id}"></receta-en-lista>`;
+        console.log(id+' Añadido en lfista');
     }
     _despintarReceta(id){
         let listaRecetas = this.shadowRoot.querySelector('.listaRecetas');
         let recetaAEliminar = this.shadowRoot.querySelector(`#${id}`)
         listaRecetas.removeChild(recetaAEliminar);
         console.log(id+' Eliminado en lista');
+    }
+    _fragmentarIngredientes(ingredientes){
+        let arrayIngredientes = ingredientes.split(',');
+        for (let i = 0; i < arrayIngredientes.length; i++) {
+            arrayIngredientes[i] = " "+arrayIngredientes[i];
+        }
+        return arrayIngredientes = arrayIngredientes.toString();
     }
     
 }
