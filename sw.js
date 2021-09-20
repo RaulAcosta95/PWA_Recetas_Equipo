@@ -1,5 +1,5 @@
 
-const staticCacheName='site-static-v1';
+const staticCacheName='site-static-v2';
 const dynamicCacheName = 'site-dynamic-v2';
 const assets=[
     '/',
@@ -77,22 +77,22 @@ self.addEventListener('fetch', evt => {
 
 // BUG CACHÉ MUESTRA SOLO LO QUE ESTÁ EN DINAMIC CACHÉ
 // ES DECIR, OFFLINE MODE CAUSA CONFLICTO
-    // if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
-    //   evt.respondWith(
-    //     caches.match(evt.request).then(cacheRes => {
-    //       return cacheRes || fetch(evt.request).then(fetchRes => {
-    //         return caches.open(dynamicCacheName).then(cache => {
-    //           cache.put(evt.request.url, fetchRes.clone());
-    //           // check cached items size
-    //           limitCacheSize(dynamicCacheName, 60);
-    //           return fetchRes;
-    //         })
-    //       });
-    //     }).catch(() => {
-    //       if(evt.request.url.indexOf('.html') > -1){
-    //         return caches.match('./pages/fallback.html');
-    //       } 
-    //     })
-    //   );
-    // }
+    if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
+      evt.respondWith(
+         caches.match(evt.request).then(cacheRes => {
+           return cacheRes || fetch(evt.request).then(fetchRes => {
+             return caches.open(dynamicCacheName).then(cache => {
+               cache.put(evt.request.url, fetchRes.clone());
+               // check cached items size
+               limitCacheSize(dynamicCacheName,60);
+               return fetchRes;
+             })
+           });
+         }).catch(() => {
+           if(evt.request.url.indexOf('.html') > -1){
+             return caches.match('./pages/fallback.html');
+           } 
+         })
+       );
+     }
   });
