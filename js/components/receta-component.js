@@ -28,7 +28,7 @@ export class recetaComponente extends LitElement {
         .sidebar{
             margin: auto;
             padding: .1em 1.5em;
-            position: fixed;
+            position: absolute;
             width: 255px;
             height: 100%;
             background: #ffffff;
@@ -79,24 +79,24 @@ export class recetaComponente extends LitElement {
     }
     render() {
         return html`
-         <form id="task-form">
-                <div class="sidebar">
-                     <h2>New Recipe</h2>
-                    <div class="form_container">
-                     <div class="form_group">
-                            <input type="text" id="title"  placeholder="e.g Ninja soup autofocus"class="form_input">
-                            <label for="title" class="form_label">Nombre:</label>
-                            <span class="form_line"></span>
+        <form id="task-form">
+            <div class="sidebar">
+                <h2>New Recipe</h2>
+                <div class="form_container">
+                    <div class="form_group">
+                        <input type="text" id="title" placeholder="e.g Ninja soup autofocus" class="form_input">
+                        <label for="title" class="form_label">Nombre:</label>
+                        <span class="form_line"></span>
                     </div>
                     <div class="form_group">
-                            <input type="text" id="ingredients" placeholder="e.g Tofu,mushroom,garlic" class="form_input">
-                            <label for="ingredients" class="form_label">Ingredientes:</label>
-                            <span class="form_line"></span>
+                        <input type="text" id="ingredients" placeholder="e.g Tofu,mushroom,garlic" class="form_input">
+                        <label for="ingredients" class="form_label">Ingredientes:</label>
+                        <span class="form_line"></span>
                     </div>
-                      <button @click="${this._agregar}" class="form_button">ADD</button>
-                    </div>  
-               </div>
-       </form>
+                    <button @click="${this._agregar}" class="form_button">ADD</button>
+                </div>
+            </div>
+        </form>
         `;
     }
     _agregar() {
