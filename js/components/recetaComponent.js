@@ -1,5 +1,7 @@
 import { LitElement, html } from "lit-element";
+
 export class RecetaEnListaComponent extends LitElement{
+
     static get properties(){
         return {
             id: {type: String},
@@ -7,14 +9,17 @@ export class RecetaEnListaComponent extends LitElement{
             ingredients: {type: String}
         }
     }
+
     constructor(){
         super();
         this.id = "";
         this.title = "";
         this.ingredients = "";
     }
+
     render(){
         return html `
+
             <style>
             .recetaEnListaComponent *{
                 margin:0;
@@ -42,6 +47,10 @@ export class RecetaEnListaComponent extends LitElement{
             .recetaEnListaComponent .contenedorInfo{
                 width: 70%;
             }
+            .recetaEnListaComponent .contenedorInfo h3, .recetaEnListaComponent .contenedorInfo p{
+                margin-top:10px;
+                margin-bottom:10px;
+            }
             .recetaEnListaComponent button{
                 background-color:rgba(172, 128, 128,.0);
                 margin: 10px;
@@ -60,6 +69,7 @@ export class RecetaEnListaComponent extends LitElement{
                 align-items:flex-end;
             }
             </style>
+
             <div class="recetaEnListaComponent">
                 <img class="dishImage" src="./images/dish.png">
                 <div class="contenedorInfo">
@@ -74,6 +84,7 @@ export class RecetaEnListaComponent extends LitElement{
             </div>
         `
     }
+
     _eliminarReceta(){
         console.log('Evento Elimina Receta');
         db.collection('recipes').doc(this.id).delete();
@@ -83,5 +94,7 @@ export class RecetaEnListaComponent extends LitElement{
             composed:true
         }));
     }
+
 }
+
 customElements.define('receta-en-lista', RecetaEnListaComponent);
