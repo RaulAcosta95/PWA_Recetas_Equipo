@@ -5,22 +5,26 @@ export class MenuApp extends LitElement{
     return css`
     *{
     font-family: 'Raleway', sans-serif;
-    font-size:1rem;
-    }   
+    font-size: 1.3rem;
+    }
     aside{
-                width: 20%;
-                height: 200px;
+                width: 80%;
+                height: 100%;
                 left: 100px;
             }
             .nav {
-                margin-top: 80px;
+                margin-top: 5px;
+                list-style-type: none;
+                padding-left: 3px;
+            }
+            .nav2 {
+                display:flex;
+                margin-top: 5px;
                 list-style-type: none;
                 padding-left: 3px;
             }
             .nav a{
-                font-size: 1rem;
                 color: black;
-                padding: 10px;
                 border-radius: 2px;
                 text-decoration: none;
             }
@@ -36,15 +40,14 @@ export class MenuApp extends LitElement{
                 display:flex;
                 width:100%;
                 height: 100%;
+                padding-left: 20px;
            }
            li {padding-bottom: 10px;}
            main{
-                width: 20%;
-                height: 200px; 
-                
-           }
-           h5{
-               text-align:center;
+                width: 100%;
+                height: 100%; 
+                justify-content:left;
+                align-items: left;   
            }
             #title1{
                 color: rgb('203, 134, 63');
@@ -52,6 +55,11 @@ export class MenuApp extends LitElement{
             }
             #title2{
                 color: rgb(231, 192, 154);
+            }
+
+            .icono{
+                width:30px;
+                height:30px;
             }
 
 
@@ -73,20 +81,21 @@ export class MenuApp extends LitElement{
 render(){
     return html`
     <section>
-        <main id="panel">
-        <h5><span id="title1">FOOD</span><span id="title2">NINJA</span></h5>
-        </main>
         <aside>
-
+        <h5><span id="title1">FOOD</span><span id="title2">NINJA</span></h5>
         <nav>
         <ul class="nav">
             <li><a @click="${this._clickHome}">Home</a></li>
-            <li><a @click="${this._clickContact}">Conctact</a></li>
             <li><a @click="${this._clickAbout}">About</a></li>
+        </ul>
+        <hr>
+        <ul class="nav nav2">
+        <img src="./images/correo.png" class="icono" @click="${this._clickContact}">
+        <li><a @click="${this._clickContact}"> Conctact</a></li>
         </ul>
         </nav>
 
-        <hr>
+       
 
       </aside>
         </section>
