@@ -19,9 +19,7 @@ export class ListaDeRecetasComponent extends LitElement{
 
     render(){
         return html`
-        <div class="listaRecetas">
-        <menu-component></menu-component>
-        </div>
+        <div class="listaRecetas"></div>
         `
     }
 

@@ -1,5 +1,5 @@
 import { css, html, LitElement } from "lit-element";
-export class recetaComponente extends LitElement {
+export class formularioComponente extends LitElement {
 
     static get properties() {
         return {
@@ -16,25 +16,11 @@ export class recetaComponente extends LitElement {
 
     static get styles() {
         return css`
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing:border-box;
-            list-style: none;
-            text-decoration: none;
-        }
-      
-        
         .sidebar{
-            margin: auto;
             padding: .1em 1.5em;
-            position: absolute;
-            width: 255px;
-            height: 100%;
-            background: #ffffff;
-            
+            background:#ffffff;
         }
-        .wrapper .sidebar h2{
+        sidebar h2{
             color: black;
             text-transform: uppercase;
             text-align: left;
@@ -50,7 +36,7 @@ export class recetaComponente extends LitElement {
             --color: #5757577e;
         }
         .form_input{
-            width: 100%;
+            width: 90%;
             background: none;
             color: #706c6c;
             font-size: 1em;
@@ -79,8 +65,9 @@ export class recetaComponente extends LitElement {
     }
     render() {
         return html`
-        <form id="task-form">
+        
             <div class="sidebar">
+            <form id="task-form">
                 <h2>New Recipe</h2>
                 <div class="form_container">
                     <div class="form_group">
@@ -95,23 +82,28 @@ export class recetaComponente extends LitElement {
                     </div>
                     <button @click="${this._agregar}" class="form_button">ADD</button>
                 </div>
+                </form>
             </div>
-        </form>
+        
         `;
     }
-    _agregar() {
-        const form = this.shadowRoot.querySelector('form');
-        const recipe = {
-            title: form.title.value,
-            ingredients: form.ingredients.value
-        };
+_agregar() {
+    const form = this.shadowRoot.querySelector('form');
+    form.addEventListener('click', evt => {
+        evt.preventDefault();
+        
+    const recipe = {
+        title: form.title.value,
+        ingredients: form.ingredients.value
+    };
 
-        db.collection('recipes').add(recipe)
-            .catch(err => console.log(err));
+    db.collection('recipes').add(recipe)
+        .catch(err => console.log(err));
 
-        form.title.value = '';
-        form.ingredients.value = '';
-        console.log(recipe);
-    }
+    form.title.value = '';
+    form.ingredients.value = '';
+    console.log(recipe);
+    });
 }
-customElements.define('receta-component', recetaComponente);
+}
+customElements.define('formulario-receta', formularioComponente);
