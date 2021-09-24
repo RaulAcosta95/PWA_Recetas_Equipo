@@ -90,8 +90,7 @@ render(){
         </ul>
         <hr>
         <ul class="nav nav2">
-        <img src="./images/correo.png" class="icono" @click="${this._clickContact}">
-        <li><a @click="${this._clickContact}"> Conctact</a></li>
+        <img src="./images/correo.png" class="icono" @click="${this._clickContact}"><li><a @click="${this._clickContact}"> Conctact</a></li>
         </ul>
         </nav>
 
