@@ -19,13 +19,21 @@
 }
 #left{
              
-  width: 30%;
-  height: 20vh;
-  position: fixed;
+  width: 25%;
+  height: 100%;
+  padding: 0.5em;
+  position: absolute;
+  background-color: #ffffff;
   /* background-color: gray; */
   left:0;
   display: none;
  
+}
+@media screen and (max-width: 480px) {
+  #left{
+    width: 70%;
+    padding: 0;
+  }
 }
 #central{
   width: 100%;
@@ -55,3 +63,9 @@ lista-recetas{
   position: absolute;
  
 }
+formulario-receta{
+  position: absolute;
+}
+/* button-component{
+  position: relative;
+} */
