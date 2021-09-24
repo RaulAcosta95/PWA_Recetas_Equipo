@@ -1,5 +1,5 @@
 import { html, LitElement, css } from "lit-element";
-
+import './indexComponents'
 export class buttonComponent extends LitElement {
 
     static get styles() {
@@ -29,25 +29,16 @@ export class buttonComponent extends LitElement {
             transition: transform 300ms;
         }
         .menu-content{
-            width: var(--widthContent);
-            height: var(--heightContent);
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .menu-item{
-            width: var(--sizeButton);
-            height: var(--sizeButton);
-            background: var(--primaryColor);
             display: flex;
             justify-content: center;
-            align-items: center;
+        }
+        .menu-item{
+            background: var(--primaryColor);
+            display: flex;
             border-radius: 50%;
             cursor: pointer;
             position: absolute;
-            bottom: 0;
-            left: 70px;
+            bottom: 45px;
             transition: transform 300ms;
         }
         .menu-item:hover{
@@ -60,18 +51,33 @@ export class buttonComponent extends LitElement {
         return html`
         <body>
             <div class="menu-content">
-                <span class="menu-item"><img src='./images/icons/plus.png' @click="${this._agregar}"></span>
+                <span class="menu-item"><img src='./images/icons/plus.png' @click="${this.formulario}"></span>
             </div>
         </body>
         `;
     }
 
-    _agregar() {
+    formulario(){
+        let menu = document.getElementById('left');
+        if(menu.hasChildNodes()){
+             menu.innerHTML = null; 
+            
+             menu.style.setProperty("display","none");
+             menu.style.setProperty("z-index","-1");
+        }else{
+           
+            menu.style.setProperty("display","inline");
+            menu.style.setProperty("z-index","1");
+            menu.innerHTML = '<formulario-receta></formulario-receta>'
+        }     
+    }
+
+    /* _agregar() {
         this.dispatchEvent(new CustomEvent('enviar', {
             bubbles: true,
             composed: true
         }));
-    }
+    } */
 
 }
 customElements.define('button-component', buttonComponent);

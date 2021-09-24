@@ -1,12 +1,11 @@
 //install service worker
-const staticCacheName='site-static-v1';
+const staticCacheName='site-static-v2';
 const dynamicCacheName = 'site-dynamic-v1';
 const assets=[
     '/',
-    
     '/index.html',
     '/manifest.json',
-    '/sw.js',
+     '/sw.js',
     '/images/icons/plus.png',
     '/images/icons/icon-144x144.png',
     '/css/styles.css',
@@ -27,13 +26,14 @@ const assets=[
     '/js/components/app-menu.js',
     '/js/components/button-component.js',
    '/js/components/listaRecetasComponent.js',
+    '/js/components/indexComponent.js',
     '/js/components/recetaComponent.js',
-    '/js/components/receta-component.js',
     '/js/components/main-app.js',
     '/js/components/menu-component.js',
     '/images/menu.png',
     '/images/delete.png',
     '/images/instagram.png',
+    /*
     '/images/facebook1.png',
     '/images/correo.png',
     '/images/icon-128x128.ico',
@@ -54,7 +54,7 @@ const assets=[
     '/node_modules/lit-html/lib/directive.js',
     '/node_modules/lit-html/lib/part.js',
     '/node_modules/lit-html/lib/parts.js',
-    'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 ',
+    'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 '*/,
 ];
 
 // cache size limit function
@@ -74,7 +74,7 @@ self.addEventListener('install', evt => {
     evt.waitUntil(
       caches.open(staticCacheName).then(cache=> {
         console.log('caching shell assets');
-        cache.addAll(assets);
++        cache.addAll(assets);
       })
     );
   });
