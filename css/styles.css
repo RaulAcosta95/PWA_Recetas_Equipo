@@ -49,13 +49,21 @@
 }
 #rigth{
   position: absolute;
-  width: 40%;
+  width: 25%;
   height: 100%;
-  background-color:#EFFDFC;
-  right:0px;
-  /* display: none; */
-  z-index: -1;
-  
+   padding: 0.5em;
+  right: 0;
+  display: none;
+  background-color: rgb(254 254 250);
+}
+@media screen and (max-width:800px) {
+#rigth{
+  width: 55%;
+}
+li{
+  font-weight: bold;
+  color: black;
+}
 }
 .recetas{
   display: flex;

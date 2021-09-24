@@ -7,7 +7,7 @@ db.enablePersistence()
         //probablemente hay varias pestañas abiertas
         console.log('persistence failed');
         
-    }else if (err.code=='unimplemented') {
+    }else if (err.code =='unimplemented') {
         console.log('persistence is not available');
     }
 });

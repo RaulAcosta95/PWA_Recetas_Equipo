@@ -7,7 +7,7 @@ class Contact extends LitElement {
 
             redSocial1:{type:String},
             iconoRedSocial1:{type:String},
-            linkRedSocial1:{tyoe:String},
+           linkRedSocial1:{tyoe:String},
 
             redSocial2:{type:String},
             iconoRedSocial2:{type:String},
@@ -23,6 +23,12 @@ class Contact extends LitElement {
         *{
             font-family: 'Raleway', sans-serif;
         }
+        .Contact{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
         .grid{
             margin-top: 2px;;
             width: 60%;
@@ -36,13 +42,12 @@ class Contact extends LitElement {
         }
         .icono{
             margin-left: 40%;
-            margin-top: 3px;
+            margin-top: 8px;
         }
         .parteS{
-            background: linear-gradient(90deg, #f79436 0%, #fc821c 100%);
+            background: linear-gradient(90deg, rgb(255 233 209) 0%, rgb(247 147 54) 100%);
             height: 65px;
             border-top: 5px;
-            margin-left: -4px;
             border-top-right-radius: 5px;
             border-top-left-radius: 5px;
         }
@@ -53,7 +58,6 @@ class Contact extends LitElement {
         .Ninja{
             margin-top: 3%;
             border-radius: 50%;
-            margin-left: 44%;
             box-shadow:0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.23);
         }
         h2,p,h3{
@@ -61,6 +65,7 @@ class Contact extends LitElement {
             text-align: center;
         }
         p{
+             
             font-weight: bold;
         }
         a{
@@ -69,33 +74,42 @@ class Contact extends LitElement {
             
         }
         .column{
+            display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
             box-shadow:0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.23);
-            padding-left: 4px;
+            
             border-width: 2px;
             border-radius: 5px;
             border-color: rgb(28, 14, 41);
         }
         .titulo{
-            padding-bottom: 0%;
+            margin-top: -9px;
+            position: relative;
             
         }
         .mail{
-            margin-left: 5%;
-            text-align: justify;
+           
             font-weight: bold;
         }
         
         @media screen and (max-width:800px) {
-        .grid{
-            margin-top: 5%;
-            margin-left: 28%;
-            grid-template-columns: 1fr;
-            height: 700px;
-            width: 50%;
+        
+.grid {
+    display: flex;
+    margin-top: 5%;
+    grid-template-columns: 1fr;
+    height: 700px;
+    flex-direction: column;
+    align-items: center;
             }
            
+            .icono{
+                margin-left: 41%;
+               
+            }
         .Ninja{
-                margin-left: 37%;
+                justify-content:center;
             }
            
         
@@ -164,7 +178,7 @@ class Contact extends LitElement {
         
         <div class="parteI">
         <h3>${this.redSocial3}</h3>
-        <p>Envianos tus dudas y sugerencias a </p> <a href="${this.linkRedSocial3}" class="mail">FoodNinja@gmail.com</a>
+        <p>Envianos tus dudas y sugerencias al correo: <a href="${this.linkRedSocial3}" class="mail">FoodNinja@gmail.com</a></p>
         
         </div><!-- Cierre de parteI -->
        </div><!-- Cierre de column -->
