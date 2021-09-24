@@ -1,6 +1,8 @@
 import { LitElement , html} from "lit-element"
 import './recetaComponent';
+
 export class ListaDeRecetasComponent extends LitElement{
+
     constructor(){
         super();
         this._db();
@@ -8,11 +10,13 @@ export class ListaDeRecetasComponent extends LitElement{
             this._despintarReceta(id.detail.data);
         })
     }
+
     static get properties(){
         return {
 
         }
     }
+
     render(){
         return html`
         <div class="listaRecetas">
@@ -20,6 +24,7 @@ export class ListaDeRecetasComponent extends LitElement{
         </div>
         `
     }
+
     _db(){
         db.collection('recipes').onSnapshot((snapshot) => {
             snapshot.docChanges().forEach(change =>{
@@ -30,20 +35,23 @@ export class ListaDeRecetasComponent extends LitElement{
             })
         });
     }
+
     _pintarReceta(data, id){
         let listaRecetas = this.shadowRoot.querySelector('.listaRecetas');
         let ingredientes = data.ingredients;
         ingredientes = this._fragmentarIngredientes(ingredientes);
         listaRecetas.innerHTML += 
         `<receta-en-lista title="${data.title}" ingredients="${ingredientes}" id="${id}"></receta-en-lista>`;
-        console.log(id+' Añadido en lfista');
+        // console.log(id+' Añadido en lista');
     }
+
     _despintarReceta(id){
         let listaRecetas = this.shadowRoot.querySelector('.listaRecetas');
         let recetaAEliminar = this.shadowRoot.querySelector(`#${id}`)
         listaRecetas.removeChild(recetaAEliminar);
-        console.log(id+' Eliminado en lista');
+        // console.log(id+' Eliminado en lista');
     }
+
     _fragmentarIngredientes(ingredientes){
         let arrayIngredientes = ingredientes.split(',');
         for (let i = 0; i < arrayIngredientes.length; i++) {
@@ -53,4 +61,5 @@ export class ListaDeRecetasComponent extends LitElement{
     }
     
 }
+
 customElements.define('lista-recetas', ListaDeRecetasComponent);
