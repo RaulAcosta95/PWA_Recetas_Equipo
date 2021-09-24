@@ -33,7 +33,7 @@ const assets=[
     '/images/menu.png',
     '/images/delete.png',
     '/images/instagram.png',
-    /*
+    
     '/images/facebook1.png',
     '/images/correo.png',
     '/images/icon-128x128.ico',
@@ -54,7 +54,7 @@ const assets=[
     '/node_modules/lit-html/lib/directive.js',
     '/node_modules/lit-html/lib/part.js',
     '/node_modules/lit-html/lib/parts.js',
-    'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 '*/,
+    'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 ',
 ];
 
 // cache size limit function
