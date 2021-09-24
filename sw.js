@@ -1,11 +1,13 @@
 //install service worker
-const staticCacheName='site-static-v2';
-const dynamicCacheName = 'site-dynamic-v2';
+const staticCacheName='site-static-v1';
+const dynamicCacheName = 'site-dynamic-v1';
 const assets=[
     '/',
+    
     '/index.html',
     '/manifest.json',
     '/sw.js',
+    '/images/icons/plus.png',
     '/images/icons/icon-144x144.png',
     '/css/styles.css',
     '/images/404-Error-bro.svg',
@@ -14,6 +16,7 @@ const assets=[
     '/pages/fallback.html',
     '/js/contact.js',
     '/js/About.js',
+    '/js/index.js',
     'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap',
     'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js',
     'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
@@ -21,14 +24,20 @@ const assets=[
     '/js/db.js',
     '/node_modules/lit-element/lit-element.js',
     '/js/components/menuDesplegableComponent.js',
-    '/js/components/listaRecetasComponent.js',
+    '/js/components/app-menu.js',
+    '/js/components/button-component.js',
+   '/js/components/listaRecetasComponent.js',
     '/js/components/recetaComponent.js',
+    '/js/components/receta-component.js',
+    '/js/components/main-app.js',
+    '/js/components/menu-component.js',
     '/images/menu.png',
     '/images/delete.png',
     '/images/instagram.png',
     '/images/facebook1.png',
     '/images/correo.png',
     '/images/icon-128x128.ico',
+    '/images/icons/icon-128x128.png',
     '/node_modules/lit-html/lib/shady-render.js',
     '/node_modules/lit-element/lib/updating-element.js',
     '/node_modules/lit-element/lib/decorators.js',
@@ -61,7 +70,7 @@ const limitCacheSize = (name, size) => {
 
 
 self.addEventListener('install', evt => {
-    //console.log('service worker installed');
+   //console.log('service worker installed');
     evt.waitUntil(
       caches.open(staticCacheName).then(cache=> {
         console.log('caching shell assets');
@@ -71,7 +80,7 @@ self.addEventListener('install', evt => {
   });
   
   // activate event
-  self.addEventListener('activate', evt => {
+ self.addEventListener('activate', evt => {
    evt.waitUntil(
      caches.keys().then(keys=>{
        return Promise.all(keys
@@ -106,4 +115,4 @@ self.addEventListener('fetch', evt => {
         })
       );
     }
-  });
+  })
