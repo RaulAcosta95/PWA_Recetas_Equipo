@@ -113,7 +113,7 @@ _clickHome(){
         der.style.setProperty("display","inline");
     }
      
- 
+    this.aparecer();
 
 }
 
@@ -129,7 +129,10 @@ _clickContact(){
             main.innerHTML = '<main-app ban="contact"></main-app>'
             der.style.setProperty("display","inline");
         }
-         
+        let caja = document.getElementById('central');
+        caja = style.display = "none";
+        
+        this.desaparecer();
      
   
 }
@@ -145,7 +148,17 @@ _clickAbout(){
         main.innerHTML = '<main-app ban="about"></main-app>'
         rigth.style.setProperty("display","block");
     }
+    this.desaparecer();
+    
 }
+
+    desaparecer(){
+        document.getElementById('boton').style.display = "none";
+    }
+
+    aparecer(){
+        document.getElementById('boton').style.display = "block";
+    }
 properti() {
    if(this.ban === 'home'){
       this.b=true;
