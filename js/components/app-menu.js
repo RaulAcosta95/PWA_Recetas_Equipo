@@ -135,7 +135,7 @@ _clickContact(){
         let caja = document.getElementById('central');
         caja = style.display = "none";
         
-        this.desaparecer();
+    
      
   
 }
