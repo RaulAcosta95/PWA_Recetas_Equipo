@@ -1,11 +1,11 @@
 //install service worker
 const staticCacheName='site-static-v2';
-const dynamicCacheName = 'site-dynamic-v1';
+const dynamicCacheName = 'site-dynamic-v2';
 const assets=[
     '/',
     '/index.html',
     '/manifest.json',
-     '/sw.js',
+    '/sw.js',
     '/images/icons/plus.png',
     '/images/icons/icon-144x144.png',
     '/css/styles.css',
@@ -24,16 +24,15 @@ const assets=[
     '/node_modules/lit-element/lit-element.js',
     '/js/components/menuDesplegableComponent.js',
     '/js/components/app-menu.js',
+    '/js/components/formulario-receta.js',
     '/js/components/button-component.js',
    '/js/components/listaRecetasComponent.js',
-    '/js/components/indexComponent.js',
     '/js/components/recetaComponent.js',
     '/js/components/main-app.js',
     '/js/components/menu-component.js',
     '/images/menu.png',
     '/images/delete.png',
     '/images/instagram.png',
-    
     '/images/facebook1.png',
     '/images/correo.png',
     '/images/icon-128x128.ico',
