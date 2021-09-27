@@ -58,8 +58,8 @@ export class MenuApp extends LitElement{
             }
 
             .icono{
-                width:30px;
-                height:30px;
+                width: 27px;
+                height: 24px;
             }
 
 

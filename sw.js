@@ -1,6 +1,6 @@
 //install service worker
-const staticCacheName='site-static-v1';
-const dynamicCacheName = 'site-dynamic-v1';
+const staticCacheName='site-static-v2';
+const dynamicCacheName = 'site-dynamic-v2';
 const assets=[
     '/',
     '/index.html',
@@ -27,6 +27,7 @@ const assets=[
     '/js/db.js',
     '/js/components/menuDesplegableComponent.js',
     '/js/components/app-menu.js',
+    '/js/components/formulario-receta.js',
     '/js/components/button-component.js',
     '/js/components/listaRecetasComponent.js',
     '/js/components/recetaComponent.js',
