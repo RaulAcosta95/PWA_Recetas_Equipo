@@ -39,7 +39,7 @@ class About extends LitElement{
         display:flex;
         flex-direction: column;
         align-items: center;
-        justify-contennt:flex-start;
+        justify-content:flex-start;
             }
             
             `;

@@ -4,11 +4,11 @@ export class MenuApp extends LitElement{
   static get styles() {
     return css`
     *{
-    font-family: 'Raleway', sans-serif;
+    font-family: "Gill Sans Extrabold", Helvetica, sans-serif ;
     font-size: 1.3rem;
     }
     aside{
-                width: 80%;
+                width: 60%;
                 height: 100%;
                 left: 100px;
             }
@@ -38,7 +38,7 @@ export class MenuApp extends LitElement{
             }
             section{
                 display:flex;
-                width:100%;
+                width:80%;
                 height: 100%;
                 padding-left: 20px;
            }
@@ -90,8 +90,7 @@ render(){
         </ul>
         <hr>
         <ul class="nav nav2">
-        <img src="./images/correo.png" class="icono" @click="${this._clickContact}">
-        <li><a @click="${this._clickContact}"> Conctact</a></li>
+        <img src="./images/correo.png" class="icono" @click="${this._clickContact}"><li><a @click="${this._clickContact}"> Conctact</a></li>
         </ul>
         </nav>
 

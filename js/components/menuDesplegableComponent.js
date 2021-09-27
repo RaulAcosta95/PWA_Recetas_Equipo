@@ -34,7 +34,7 @@ class menuDesplegableComponent extends LitElement{
             .menuDesplegableComponent{
                 background-color: rgb(${this.backgroundColorRGB});
                 height:40px;
-                width: 100vw;
+                width: 100%;
                 display: flex;
                 align-items: center;
                 font-family: sans-serif;
