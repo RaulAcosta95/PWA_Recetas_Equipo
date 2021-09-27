@@ -132,8 +132,6 @@ _clickContact(){
             main.innerHTML = '<main-app ban="contact"></main-app>'
             der.style.setProperty("display","inline");
         }
-        let caja = document.getElementById('central');
-        caja = style.display = "none";
         
     
      
