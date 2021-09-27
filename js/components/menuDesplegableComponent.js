@@ -78,6 +78,7 @@ class menuDesplegableComponent extends LitElement{
         }else{
             main.innerHTML = '<lista-recetas></lista-recetas>'
         }
+        this.aparecer();
     }
 
     aparecerMenu(){
@@ -95,6 +96,9 @@ class menuDesplegableComponent extends LitElement{
            menu.innerHTML = '<menu-app></menu-app>'
        }
         
+    }
+    aparecer(){
+        document.getElementById('boton').style.display = "block";
     }
 }
 customElements.define('menu-desplegable', menuDesplegableComponent);
