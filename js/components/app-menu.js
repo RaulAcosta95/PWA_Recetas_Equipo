@@ -118,6 +118,9 @@ _clickHome(){
 }
 
 _clickContact(){
+
+        this.desaparecer();
+
         let main = document.getElementById('central');
         let der = document.getElementById('rigth');
         if(main.hasChildNodes()){
@@ -129,14 +132,13 @@ _clickContact(){
             main.innerHTML = '<main-app ban="contact"></main-app>'
             der.style.setProperty("display","inline");
         }
-        let caja = document.getElementById('central');
-        caja = style.display = "none";
         
-        this.desaparecer();
+    
      
   
 }
 _clickAbout(){
+    this.desaparecer();
     let main = document.getElementById('central');
     let rigth = document.getElementById('rigth');
     if(main.hasChildNodes()){
@@ -148,7 +150,6 @@ _clickAbout(){
         main.innerHTML = '<main-app ban="about"></main-app>'
         rigth.style.setProperty("display","block");
     }
-    this.desaparecer();
     
 }
 
