@@ -47,7 +47,6 @@ export class ListaDeRecetasComponent extends LitElement{
         let listaRecetas = this.shadowRoot.querySelector('.listaRecetas');
         let recetaAEliminar = this.shadowRoot.querySelector(`#${id}`)
         listaRecetas.removeChild(recetaAEliminar);
-        // console.log(id+' Eliminado en lista');
     }
 
     _fragmentarIngredientes(ingredientes){
