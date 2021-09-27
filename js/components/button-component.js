@@ -19,14 +19,10 @@ export class buttonComponent extends LitElement {
             --bgColor: #00415A;
             --primaryColor: #ff8d00;
             --colorHover:  #ff8d00;
-            --sizeButton: 40px;
             --sizeIcons: 33px;
-            --widthContent: 200px;
-            --heightContent: 130px;
         }
         .menu-item img{
             width: var(--sizeIcons);
-            transition: transform 300ms;
         }
         .menu-content{
             display: flex;
@@ -35,11 +31,12 @@ export class buttonComponent extends LitElement {
         .menu-item{
             background: var(--primaryColor);
             display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
             cursor: pointer;
             position: absolute;
             bottom: 45px;
-            transition: transform 300ms;
         }
         .menu-item:hover{
             background: var(--colorHover);
@@ -70,14 +67,8 @@ export class buttonComponent extends LitElement {
             menu.style.setProperty("z-index","1");
             menu.innerHTML = '<formulario-receta></formulario-receta>'
         }     
-    }
 
-    /* _agregar() {
-        this.dispatchEvent(new CustomEvent('enviar', {
-            bubbles: true,
-            composed: true
-        }));
-    } */
-
+       
+    }    
 }
 customElements.define('button-component', buttonComponent);

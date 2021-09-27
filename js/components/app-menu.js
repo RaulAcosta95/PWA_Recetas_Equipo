@@ -4,11 +4,11 @@ export class MenuApp extends LitElement{
   static get styles() {
     return css`
     *{
-    font-family: 'Raleway', sans-serif;
+    font-family: "Gill Sans Extrabold", Helvetica, sans-serif ;
     font-size: 1.3rem;
     }
     aside{
-                width: 80%;
+                width: 60%;
                 height: 100%;
                 left: 100px;
             }
@@ -38,7 +38,7 @@ export class MenuApp extends LitElement{
             }
             section{
                 display:flex;
-                width:100%;
+                width:80%;
                 height: 100%;
                 padding-left: 20px;
            }
@@ -90,8 +90,7 @@ render(){
         </ul>
         <hr>
         <ul class="nav nav2">
-        <img src="./images/correo.png" class="icono" @click="${this._clickContact}">
-        <li><a @click="${this._clickContact}"> Conctact</a></li>
+        <img src="./images/correo.png" class="icono" @click="${this._clickContact}"><li><a @click="${this._clickContact}"> Conctact</a></li>
         </ul>
         </nav>
 
@@ -114,7 +113,7 @@ _clickHome(){
         der.style.setProperty("display","inline");
     }
      
- 
+    this.aparecer();
 
 }
 
@@ -130,7 +129,10 @@ _clickContact(){
             main.innerHTML = '<main-app ban="contact"></main-app>'
             der.style.setProperty("display","inline");
         }
-         
+        let caja = document.getElementById('central');
+        caja = style.display = "none";
+        
+        this.desaparecer();
      
   
 }
@@ -146,7 +148,17 @@ _clickAbout(){
         main.innerHTML = '<main-app ban="about"></main-app>'
         rigth.style.setProperty("display","block");
     }
+    this.desaparecer();
+    
 }
+
+    desaparecer(){
+        document.getElementById('boton').style.display = "none";
+    }
+
+    aparecer(){
+        document.getElementById('boton').style.display = "block";
+    }
 properti() {
    if(this.ban === 'home'){
       this.b=true;
