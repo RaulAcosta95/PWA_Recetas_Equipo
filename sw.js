@@ -1,6 +1,6 @@
 //install service worker
 const staticCacheName='site-static-v2';
-const dynamicCacheName = 'site-dynamic-v2';
+const dynamicCacheName = 'site-dynamic-v1';
 const assets=[
     '/',
     '/index.html',
@@ -8,28 +8,8 @@ const assets=[
     '/sw.js',
     '/images/icons/plus.png',
     '/images/icons/icon-144x144.png',
-    '/css/styles.css',
     '/images/404-Error-bro.svg',
     '/images/dish.png',
-    '/js/app.js',
-    '/pages/fallback.html',
-    '/js/contact.js',
-    '/js/About.js',
-    '/js/index.js',
-    'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap',
-    'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js',
-    'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
-     '/js/components/indexComponents.js',
-    '/js/db.js',
-    '/node_modules/lit-element/lit-element.js',
-    '/js/components/menuDesplegableComponent.js',
-    '/js/components/app-menu.js',
-    '/js/components/formulario-receta.js',
-    '/js/components/button-component.js',
-   '/js/components/listaRecetasComponent.js',
-    '/js/components/recetaComponent.js',
-    '/js/components/main-app.js',
-    '/js/components/menu-component.js',
     '/images/menu.png',
     '/images/delete.png',
     '/images/instagram.png',
@@ -37,6 +17,23 @@ const assets=[
     '/images/correo.png',
     '/images/icon-128x128.ico',
     '/images/icons/icon-128x128.png',
+    '/css/styles.css',
+    '/pages/fallback.html',
+    '/js/app.js',
+    '/js/contact.js',
+    '/js/About.js',
+    '/js/index.js',
+    '/js/components/indexComponents.js',
+    '/js/db.js',
+    '/js/components/menuDesplegableComponent.js',
+    '/js/components/app-menu.js',
+    '/js/components/formulario-receta.js',
+    '/js/components/button-component.js',
+    '/js/components/listaRecetasComponent.js',
+    '/js/components/recetaComponent.js',
+    '/js/components/main-app.js',
+    '/js/components/menu-component.js',
+    '/node_modules/lit-element/lit-element.js',
     '/node_modules/lit-html/lib/shady-render.js',
     '/node_modules/lit-element/lib/updating-element.js',
     '/node_modules/lit-element/lib/decorators.js',
@@ -51,13 +48,15 @@ const assets=[
     '/node_modules/lit-html/lib/default-template-processor.js',
     '/node_modules/lit-html/lib/template-result.js',
     '/node_modules/lit-html/lib/directive.js',
-    '/node_modules/lit-html/lib/part.js',
     '/node_modules/lit-html/lib/parts.js',
     'https://fonts.gstatic.com/s/raleway/v22/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4WjNDrMfIA.woff2 ',
-];
-
-// cache size limit function
-const limitCacheSize = (name, size) => {
+    'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap',
+    'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js',
+    'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
+  ];
+  
+  // cache size limit function
+  const limitCacheSize = (name, size) => {
   caches.open(name).then(cache => {
     cache.keys().then(keys => {
       if(keys.length > size){
