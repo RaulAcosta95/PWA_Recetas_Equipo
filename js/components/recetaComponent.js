@@ -38,6 +38,11 @@ export class RecetaEnListaComponent extends LitElement{
 
                 display: flex;
                 align-items: center;
+
+                -webkit-box-shadow: 3px 3px 9px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 3px 3px 9px 0px rgba(0,0,0,0.75);
+                box-shadow: 3px 3px 9px 0px rgba(0,0,0,0.75);
+                transition:0.5s;
             }
             .recetaEnListaComponent .dishImage{
                 width: 50px;
