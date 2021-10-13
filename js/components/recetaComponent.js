@@ -26,7 +26,7 @@ export class RecetaEnListaComponent extends LitElement{
                 padding:0;
             }
             .recetaEnListaComponent{
-                background-color: rgb(251, 238, 224);
+                background-color: rgb(123, 93, 229);
                 width: 90vw;
                 margin-top: 20px;
                 margin-bottom: 20px;
